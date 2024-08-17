@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E92EB9C52C36F9D1005A89D9 /* ICE9-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ICE9-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E92EB9C52C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileAPI-FinalTest-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92EB9C82C36F9D1005A89D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92EB9CA2C36F9D1005A89D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E92EB9CC2C36F9D1005A89D9 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		E92EB9BC2C36F9D1005A89D9 = {
 			isa = PBXGroup;
 			children = (
-				E92EB9C72C36F9D1005A89D9 /* ICE9-IOS */,
+				E92EB9C72C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS */,
 				E92EB9C62C36F9D1005A89D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		E92EB9C62C36F9D1005A89D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E92EB9C52C36F9D1005A89D9 /* ICE9-IOS.app */,
+				E92EB9C52C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E92EB9C72C36F9D1005A89D9 /* ICE9-IOS */ = {
+		E92EB9C72C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS */ = {
 			isa = PBXGroup;
 			children = (
 				E92EB9C82C36F9D1005A89D9 /* AppDelegate.swift */,
@@ -79,15 +79,15 @@
 				E9F2E0AC2C496B2200D26111 /* APILoginViewController.swift */,
 				E9F2E0AE2C496B7900D26111 /* APIRegisterViewController.swift */,
 			);
-			path = "ICE9-IOS";
+			path = "MobileAPI-FinalTest-IOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E92EB9C42C36F9D1005A89D9 /* ICE9-IOS */ = {
+		E92EB9C42C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E92EB9D92C36F9D2005A89D9 /* Build configuration list for PBXNativeTarget "ICE9-IOS" */;
+			buildConfigurationList = E92EB9D92C36F9D2005A89D9 /* Build configuration list for PBXNativeTarget "MobileAPI-FinalTest-IOS" */;
 			buildPhases = (
 				E92EB9C12C36F9D1005A89D9 /* Sources */,
 				E92EB9C22C36F9D1005A89D9 /* Frameworks */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = "ICE9-IOS";
-			productName = "ICE9-IOS";
-			productReference = E92EB9C52C36F9D1005A89D9 /* ICE9-IOS.app */;
+			name = "MobileAPI-FinalTest-IOS";
+			productName = "MobileAPI-FinalTest-IOS";
+			productReference = E92EB9C52C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -117,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E92EB9C02C36F9D1005A89D9 /* Build configuration list for PBXProject "ICE9-IOS" */;
+			buildConfigurationList = E92EB9C02C36F9D1005A89D9 /* Build configuration list for PBXProject "MobileAPI-FinalTest-IOS" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E92EB9C42C36F9D1005A89D9 /* ICE9-IOS */,
+				E92EB9C42C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS */,
 			);
 		};
 /* End PBXProject section */
@@ -314,7 +314,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UL9C95HRCP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ICE9-IOS/Info.plist";
+				INFOPLIST_FILE = "MobileAPI-FinalTest-IOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -324,7 +324,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ca.georgiancollege.ICE9-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.georgiancollege.MobileAPI-FinalTest-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -345,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UL9C95HRCP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ICE9-IOS/Info.plist";
+				INFOPLIST_FILE = "MobileAPI-FinalTest-IOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -355,7 +355,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ca.georgiancollege.ICE9-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.georgiancollege.MobileAPI-FinalTest-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -370,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E92EB9C02C36F9D1005A89D9 /* Build configuration list for PBXProject "ICE9-IOS" */ = {
+		E92EB9C02C36F9D1005A89D9 /* Build configuration list for PBXProject "MobileAPI-FinalTest-IOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E92EB9D72C36F9D2005A89D9 /* Debug */,
@@ -379,7 +379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E92EB9D92C36F9D2005A89D9 /* Build configuration list for PBXNativeTarget "ICE9-IOS" */ = {
+		E92EB9D92C36F9D2005A89D9 /* Build configuration list for PBXNativeTarget "MobileAPI-FinalTest-IOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E92EB9DA2C36F9D2005A89D9 /* Debug */,

@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ICE9-IOS
+//  MobileAPI-FinalTest-IOS
 //
-//  Created by Tom Tsiliopoulos on 2024-07-04.
+//  Created by Priyanka Thomas on 2024-07-04.
 //
 
 import UIKit
