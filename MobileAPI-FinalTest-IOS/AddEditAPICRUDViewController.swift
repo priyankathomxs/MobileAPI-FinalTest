@@ -9,50 +9,49 @@ class AddEditAPICRUDViewController: UIViewController
     
     // Movie Fields
     
-    @IBOutlet weak var movieIDTextField: UITextField!
+    @IBOutlet weak var artworkIDTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var studioTextField: UITextField!
-    @IBOutlet weak var genresTextField: UITextField!
-    @IBOutlet weak var directorsTextField: UITextField!
-    @IBOutlet weak var writersTextField: UITextField!
-    @IBOutlet weak var actorsTextField: UITextField!
-    @IBOutlet weak var lengthTextField: UITextField!
-    @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var mpaRatingTextField: UITextField!
-    @IBOutlet weak var criticsRatingTextField: UITextField!
+    @IBOutlet weak var artistTextField: UITextField!
+    @IBOutlet weak var mediumTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var yearCreatedTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var dimensionsTextField: UITextField!
+    @IBOutlet weak var imageURLTextField: UITextField!
+    @IBOutlet weak var styleTextView: UITextView!
+    @IBOutlet weak var currentLocationTextField: UITextField!
     
-    var movie: Movie?
+    var artwork: Artwork?
     
-    // used for MovieViewController to pass data to the AddEditAPICRUDViewController (this controller)
-    var movieViewController: MovieViewController?
-    var movieUpdateCallback: (()-> Void)? //
+    // used for ArtworkViewController to pass data to the AddEditAPICRUDViewController (this controller)
+    var artworkViewController: ArtworkViewController?
+    var artworkUpdateCallback: (()-> Void)? //
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let movie = movie 
+        if let artwork = artwork
         {
-            // Editing an Existing Movie
-            movieIDTextField.text = movie.movieID
-            titleTextField.text = movie.title
-            studioTextField.text = movie.studio
-            genresTextField.text = movie.genres?.joined(separator: ", ")
-            directorsTextField.text = movie.directors?.joined(separator: ", ")
-            writersTextField.text = movie.writers?.joined(separator: ", ")
-            actorsTextField.text = movie.actors?.joined(separator: ", ")
-            lengthTextField.text = "\(movie.length ?? 0)"
-            yearTextField.text = "\(movie.year ?? 1900)"
-            descriptionTextView.text = movie.shortDescription
-            mpaRatingTextField.text = movie.mpaRating
-            criticsRatingTextField.text = "\(movie.criticsRating ?? 0.0)"
+            // Editing an Existing Artwork
+            artworkIDTextField.text = artwork.artworkID
+            titleTextField.text = artwork.title
+            artistTextField.text = artwork.artist
+            mediumTextField.text = artwork.medium
+            subjectTextField.text = artwork.subject?.joined(separator: ", ")
+            yearCreatedTextField.text = "\(artwork.yearCreated ?? 1000)"
+            descriptionTextField.text = artwork.description
+            dimensionsTextField.text = "\(artwork.dimensions ?? 0x0)"
+            imageURLTextField.text = artwork.imageURL
+            styleTextView.text = artwork.style?.joined(separator: ", ")
+            currentLocationTextField.text = artwork.currentLocation
             
-            AddEditTitleLabel.text = "Edit Movie"
+            
+            AddEditTitleLabel.text = "Edit Artwork"
             UpdateButton.setTitle("Update", for: .normal)
         }
         else
         {
-            AddEditTitleLabel.text = "Add Movie"
+            AddEditTitleLabel.text = "Add Artwork"
             UpdateButton.setTitle("Add", for: .normal)
         }
 
@@ -78,15 +77,15 @@ class AddEditAPICRUDViewController: UIViewController
         let urlString: String
         let requestType: String
         
-        if let movie = movie {
+        if let artwork = artwork {
             requestType = "PUT"
-            urlString = "https://mdev1004-m2024-api-q9bi.onrender.com/api/movie/update/\(movie._id)"
-            //urlString = "http://localhost:3000/api/movie/update/\(movie._id)"
+            urlString = "https://mdev1004-m2024-api-q9bi.onrender.com/api/artwork/update/\(artwork._id)"
+            //urlString = "http://localhost:3000/api/artwork/update/\(artwork._id)"
         }
         else {
             requestType = "POST"
-            urlString = "https://mdev1004-m2024-api-q9bi.onrender.com/api/movie/add"
-            //urlString = "http://localhost:3000/api/movie/add"
+            urlString = "https://mdev1004-m2024-api-q9bi.onrender.com/api/artwork/add"
+            //urlString = "http://localhost:3000/api/artwork/add"
         }
         
         guard let url = URL(string: urlString) else {
@@ -95,35 +94,34 @@ class AddEditAPICRUDViewController: UIViewController
         }
         
         // Explicitly define the types of data
-        let id: String = movie?._id ?? UUID().uuidString
-        let movieID: String = movieIDTextField.text ?? ""
+        let id: String = artwork?._id ?? UUID().uuidString
+        let artworkID: String = artworkIDTextField.text ?? ""
         let title: String = titleTextField.text ?? ""
-        let studio: String = studioTextField.text ?? ""
-        let genres: String = genresTextField.text ?? ""
-        let directors: String = directorsTextField.text ?? ""
-        let writers: String = writersTextField.text ?? ""
-        let actors: String = actorsTextField.text ?? ""
-        let year: Int = Int(yearTextField.text ?? "") ?? 0
-        let length: Int = Int(lengthTextField.text ?? "") ?? 0
-        let shortDescription: String = descriptionTextView.text ?? ""
-        let mpaRating: String = mpaRatingTextField.text ?? ""
-        let criticsRating: Double = Double(criticsRatingTextField.text ?? "") ?? 0.0
+        let artist: String = artistTextField.text ?? ""
+        let medium: String = mediumTextField.text ?? ""
+        let subject: String = subjectTextField.text ?? ""
+        let yearCreated: Int = Int(yearCreatedTextField.text ?? "") ?? 0
+        let description: String = descriptionTextField.text ?? ""
+        let dimensions: Int = Int(dimensionsTextField.text ?? "") ?? 0x0
+        let imageURL: String = imageURLTextField.text ?? ""
+        let style: String = styleTextView.text ?? ""
+        let currentLocation: String = currentLocationTextField.text ?? ""
         
-        // create the moive with the parsed data
-        let movie = Movie(
+        
+        // create the artwork with the parsed data
+        let artwork = Artwork(
             _id: id,
-            movieID: movieID,
+            artworkID: artworkID,
             title: title,
-            studio: studio,
-            genres: [genres],
-            directors: [directors],
-            writers: [writers],
-            actors: [actors],
-            year: year,
-            length: length,
-            shortDescription: shortDescription,
-            mpaRating: mpaRating,
-            criticsRating: criticsRating
+            artist: artist,
+            medium: medium,
+            subject: [subject],
+            yearCreated: yearCreated,
+            description: description,
+            dimensions: dimensions,
+            imageURL: imageURL,
+            style: [style],
+            currentLocation: currentLocation
         )
         
         // continue to configure the request
@@ -134,13 +132,13 @@ class AddEditAPICRUDViewController: UIViewController
         
         //Request
         do {
-            request.httpBody = try JSONEncoder().encode(movie)
+            request.httpBody = try JSONEncoder().encode(artwork)
             
             print("Request")
-            print(movie)
-            
-        } catch {
-            print("Failed to encode movie: \(error)")
+            print(artwork)
+            }
+        catch {
+            print("Failed to encode artwork: \(error)")
             return
         }
         
@@ -159,7 +157,7 @@ class AddEditAPICRUDViewController: UIViewController
             {
                 self?.dismiss(animated: true)
                 {
-                    self?.movieUpdateCallback?()
+                    self?.artworkUpdateCallback?()
                 }
             }
         }

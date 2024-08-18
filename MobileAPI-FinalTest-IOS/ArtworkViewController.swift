@@ -1,26 +1,26 @@
 import UIKit
 
-class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ArtworkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var tableView: UITableView!
         
-    var movies: [Movie] = []
+    var artworks: [Artwork] = []
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        fetchMovies { [weak self] movies, error in
+        fetchArtworks { [weak self] artworks, error in
             DispatchQueue.main.async
             {
-                if let movies = movies
+                if let artworks = artworks
                 {
-                    if movies.isEmpty
+                    if artworks.isEmpty
                     {
                         // Display a message for no data
-                        self?.displayErrorMessage("No movies available.")
+                        self?.displayErrorMessage("No artworks available.")
                     } else {
-                        self?.movies = movies
+                        self?.artworks = artworks
                         self?.tableView.reloadData()
                     }
                 } else if let error = error {
@@ -44,7 +44,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         present(alertController, animated: true, completion: nil)
     }
     
-    func fetchMovies(completion: @escaping ([Movie]?, Error?) -> Void)
+    func fetchArtworks(completion: @escaping ([Artwork]?, Error?) -> Void)
     {
         // Retrieve Authtoken from UserDefaults
         guard let authToken = UserDefaults.standard.string(forKey: "AuthToken") else
@@ -56,7 +56,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Configure the Request
         guard let url = URL(string: "https://mdev1004-m2024-api-q9bi.onrender.com/api/movie/list") else
-        //guard let url = URL(string: "http://localhost:3000/api/movie/list") else
+        //guard let url = URL(string: "http://localhost:3000/api/artwork/list") else
         {
             print("URL Error")
             completion(nil, nil) // Handle URL error
@@ -87,11 +87,11 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 if let success = json?["success"] as? Bool, success == true
                 {
-                    if let moviesData = json?["data"] as? [[String: Any]]
+                    if let artworksData = json?["data"] as? [[String: Any]]
                     {
-                        let movies = try JSONSerialization.data(withJSONObject: moviesData, options: [])
-                        let decodedMovies = try JSONDecoder().decode([Movie].self, from: movies)
-                        completion(decodedMovies, nil) // success
+                        let artworks = try JSONSerialization.data(withJSONObject: artworksData, options: [])
+                        let decodedArtworks = try JSONDecoder().decode([Artwork].self, from: artworks)
+                        completion(decodedArtworks, nil) // success
                     }
                     else
                     {
@@ -101,7 +101,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 else
                 {
-                    print("API Rrequet unsuccessful")
+                    print("API Request unsuccessful")
                     let errorMessage = json?["msg"] as? String ?? "Uknown Error"
                     let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                     completion(nil, error)
@@ -117,40 +117,40 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return movies.count
+        return artworks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArtworkCell", for: indexPath) as! ArtworkTableViewCell
                         
                 
-        let movie = movies[indexPath.row]
+        let artwork = artworks[indexPath.row]
                         
-        cell.titleLabel?.text = movie.title
-        cell.studioLabel?.text = movie.studio
-        cell.ratingLabel?.text = "\(movie.criticsRating ?? 0.0)"
+        cell.titleLabel?.text = artwork.title
+        cell.artistLabel?.text = artwork.artist
+        cell.yearCreatedLabel?.text = "\(artwork.yearCreated ?? 0000 )"
                 
-        // Set the background color of criticsRatingLabel based on the rating
-        let rating = movie.criticsRating
+        // Set the background color of curren Location Label based on the yearCreated
+        let yearCreated = artwork.yearCreated
 
 
-        if let rating = rating {
-            if rating > 7 {
-                cell.ratingLabel.backgroundColor = UIColor.green
-                cell.ratingLabel.textColor = UIColor.black
-            } else if rating > 5 {
-                cell.ratingLabel.backgroundColor = UIColor.yellow
-                cell.ratingLabel.textColor = UIColor.black
+        if let yearCreated = yearCreated{
+            if yearCreated > 1000 {
+                cell.yearCreatedLabel.backgroundColor = UIColor.green
+                cell.yearCreatedLabel.textColor = UIColor.black
+            } else if  yearCreated < 100 {
+                cell.yearCreatedLabel.backgroundColor = UIColor.yellow
+                cell.yearCreatedLabel.textColor = UIColor.black
             } else {
-                cell.ratingLabel.backgroundColor = UIColor.red
-                cell.ratingLabel.textColor = UIColor.white
+                cell.yearCreatedLabel.backgroundColor = UIColor.red
+                cell.yearCreatedLabel.textColor = UIColor.white
             }
         } else {
             // Handle the case where rating is nil, if needed
-            cell.ratingLabel.backgroundColor = UIColor.gray
-            cell.ratingLabel.textColor = UIColor.white
-            cell.ratingLabel.text = "N/A"
+            cell.yearCreatedLabel.backgroundColor = UIColor.gray
+            cell.yearCreatedLabel.textColor = UIColor.white
+            cell.yearCreatedLabel.text = "N/A"
         }
         
         
@@ -168,20 +168,20 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         if(editingSytle == .delete)
         {
-            let movie = movies[indexPath.row]
-            ShowDeleteConfirmationAlert(for: movie) { confirmed in
+            let artwork = artworks[indexPath.row]
+            ShowDeleteConfirmationAlert(for: artwork) { confirmed in
                 if(confirmed)
                 {
-                    // delete movie
-                    self.deleteMovie(at: indexPath)
+                    // delete artwork
+                    self.deleteArtwork(at: indexPath)
                 }
             }
         }
     }
     
-    func ShowDeleteConfirmationAlert(for movie: Movie, completion: @escaping (Bool) -> Void)
+    func ShowDeleteConfirmationAlert(for artwork: Artwork, completion: @escaping (Bool) -> Void)
     {
-        let alert = UIAlertController(title: "Delete Movie", message: "Are you sure you want to delete this movie?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Artwork", message: "Are you sure you want to delete this artwork?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             completion(false)
@@ -194,9 +194,9 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         present(alert, animated: true, completion: nil)
     }
     
-    func deleteMovie(at indexPath: IndexPath)
+    func deleteArtwork(at indexPath: IndexPath)
     {
-        let movie = movies[indexPath.row]
+        let artwork = artworks[indexPath.row]
         
         guard let authToken = UserDefaults.standard.string(forKey: "AuthToken") else
         {
@@ -204,7 +204,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        guard let url = URL(string: "https://mdev1004-m2024-api-q9bi.onrender.com/api/movie/delete/\(movie._id)") else {
+        guard let url = URL(string: "https://mdev1004-m2024-api-q9bi.onrender.com/api/movie/delete/\(artwork._id)") else {
             print("Invalid URL")
             return
         }
@@ -215,12 +215,12 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
-                print("Failed to delete movie: \(error)")
+                print("Failed to delete artwork: \(error)")
                 return
             }
             
             DispatchQueue.main.async {
-                self?.movies.remove(at: indexPath.row)
+                self?.artworks.remove(at: indexPath.row)
                 self?.tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
@@ -240,29 +240,29 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             if let AddEditVC = segue.destination as? AddEditAPICRUDViewController
             {
-                AddEditVC.movieViewController = self
+                AddEditVC.artworkViewController = self
                 if let indexPath = sender as? IndexPath
                 {
-                    // Editing an existing movie
-                    let movie = movies[indexPath.row]
-                    AddEditVC.movie = movie
+                    // Editing an existing artwork
+                    let artwork = artworks[indexPath.row]
+                    AddEditVC.artwork = artwork
                 } else {
-                    // Adding a new Movie
-                    AddEditVC.movie = nil
+                    // Adding a new Artwork
+                    AddEditVC.artwork = nil
                 }
                 
-                // Set the callback closure to reload movies
-                AddEditVC.movieUpdateCallback = { [weak self] in
-                    self?.fetchMovies { movies, error in
-                        if let movies = movies {
-                            self?.movies = movies
+                // Set the callback closure to reload artworks
+                AddEditVC.artworkUpdateCallback = { [weak self] in
+                    self?.fetchArtworks { artworks, error in
+                        if let artworks = artworks {
+                            self?.artworks = artworks
                             DispatchQueue.main.async {
                                 self?.tableView.reloadData()
                             }
                         }
                         else if let error = error
                         {
-                            print("Failed to fetch movies: \(error)")
+                            print("Failed to fetch artworks: \(error)")
                         }
                     }
                 }

@@ -1,10 +1,10 @@
 import UIKit
 
-class MovieTableViewCell: UITableViewCell
+class ArtworkTableViewCell: UITableViewCell
 {
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var studioLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
     
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var yearCreatedLabel: UILabel!
 }

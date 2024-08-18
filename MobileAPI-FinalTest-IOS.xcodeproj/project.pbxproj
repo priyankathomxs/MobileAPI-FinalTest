@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		E92EB9C92C36F9D1005A89D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9C82C36F9D1005A89D9 /* AppDelegate.swift */; };
 		E92EB9CB2C36F9D1005A89D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9CA2C36F9D1005A89D9 /* SceneDelegate.swift */; };
-		E92EB9CD2C36F9D1005A89D9 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9CC2C36F9D1005A89D9 /* MovieViewController.swift */; };
+		E92EB9CD2C36F9D1005A89D9 /* ArtworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9CC2C36F9D1005A89D9 /* ArtworkViewController.swift */; };
 		E92EB9D02C36F9D1005A89D9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E92EB9CF2C36F9D1005A89D9 /* Base */; };
 		E92EB9D22C36F9D2005A89D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E92EB9D12C36F9D2005A89D9 /* Assets.xcassets */; };
 		E92EB9D52C36F9D2005A89D9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E92EB9D42C36F9D2005A89D9 /* Base */; };
-		E92EB9DD2C36FD22005A89D9 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9DC2C36FD22005A89D9 /* MovieTableViewCell.swift */; };
-		E92EB9DF2C36FF1E005A89D9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9DE2C36FF1E005A89D9 /* Movie.swift */; };
+		E92EB9DD2C36FD22005A89D9 /* ArtworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9DC2C36FD22005A89D9 /* ArtworkTableViewCell.swift */; };
+		E92EB9DF2C36FF1E005A89D9 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92EB9DE2C36FF1E005A89D9 /* Artwork.swift */; };
 		E99BADB32C40371800B8333B /* AddEditAPICRUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BADB22C40371800B8333B /* AddEditAPICRUDViewController.swift */; };
 		E9F2E0AD2C496B2200D26111 /* APILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F2E0AC2C496B2200D26111 /* APILoginViewController.swift */; };
 		E9F2E0AF2C496B7900D26111 /* APIRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F2E0AE2C496B7900D26111 /* APIRegisterViewController.swift */; };
@@ -24,13 +24,13 @@
 		E92EB9C52C36F9D1005A89D9 /* MobileAPI-FinalTest-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileAPI-FinalTest-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92EB9C82C36F9D1005A89D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92EB9CA2C36F9D1005A89D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E92EB9CC2C36F9D1005A89D9 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		E92EB9CC2C36F9D1005A89D9 /* ArtworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViewController.swift; sourceTree = "<group>"; };
 		E92EB9CF2C36F9D1005A89D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E92EB9D12C36F9D2005A89D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E92EB9D42C36F9D2005A89D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E92EB9D62C36F9D2005A89D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E92EB9DC2C36FD22005A89D9 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		E92EB9DE2C36FF1E005A89D9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E92EB9DC2C36FD22005A89D9 /* ArtworkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkTableViewCell.swift; sourceTree = "<group>"; };
+		E92EB9DE2C36FF1E005A89D9 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		E99BADB22C40371800B8333B /* AddEditAPICRUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditAPICRUDViewController.swift; sourceTree = "<group>"; };
 		E9F2E0AC2C496B2200D26111 /* APILoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoginViewController.swift; sourceTree = "<group>"; };
 		E9F2E0AE2C496B7900D26111 /* APIRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRegisterViewController.swift; sourceTree = "<group>"; };
@@ -68,13 +68,13 @@
 			children = (
 				E92EB9C82C36F9D1005A89D9 /* AppDelegate.swift */,
 				E92EB9CA2C36F9D1005A89D9 /* SceneDelegate.swift */,
-				E92EB9CC2C36F9D1005A89D9 /* MovieViewController.swift */,
+				E92EB9CC2C36F9D1005A89D9 /* ArtworkViewController.swift */,
 				E92EB9CE2C36F9D1005A89D9 /* Main.storyboard */,
 				E92EB9D12C36F9D2005A89D9 /* Assets.xcassets */,
 				E92EB9D32C36F9D2005A89D9 /* LaunchScreen.storyboard */,
 				E92EB9D62C36F9D2005A89D9 /* Info.plist */,
-				E92EB9DC2C36FD22005A89D9 /* MovieTableViewCell.swift */,
-				E92EB9DE2C36FF1E005A89D9 /* Movie.swift */,
+				E92EB9DC2C36FD22005A89D9 /* ArtworkTableViewCell.swift */,
+				E92EB9DE2C36FF1E005A89D9 /* Artwork.swift */,
 				E99BADB22C40371800B8333B /* AddEditAPICRUDViewController.swift */,
 				E9F2E0AC2C496B2200D26111 /* APILoginViewController.swift */,
 				E9F2E0AE2C496B7900D26111 /* APIRegisterViewController.swift */,
@@ -154,12 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F2E0AF2C496B7900D26111 /* APIRegisterViewController.swift in Sources */,
-				E92EB9CD2C36F9D1005A89D9 /* MovieViewController.swift in Sources */,
+				E92EB9CD2C36F9D1005A89D9 /* ArtworkViewController.swift in Sources */,
 				E92EB9C92C36F9D1005A89D9 /* AppDelegate.swift in Sources */,
-				E92EB9DD2C36FD22005A89D9 /* MovieTableViewCell.swift in Sources */,
+				E92EB9DD2C36FD22005A89D9 /* ArtworkTableViewCell.swift in Sources */,
 				E99BADB32C40371800B8333B /* AddEditAPICRUDViewController.swift in Sources */,
 				E92EB9CB2C36F9D1005A89D9 /* SceneDelegate.swift in Sources */,
-				E92EB9DF2C36FF1E005A89D9 /* Movie.swift in Sources */,
+				E92EB9DF2C36FF1E005A89D9 /* Artwork.swift in Sources */,
 				E9F2E0AD2C496B2200D26111 /* APILoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
